@@ -9,10 +9,25 @@
 /* Begin PBXBuildFile section */
 		346BE27A1B14DAB90022039C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346BE2791B14DAB90022039C /* AppDelegate.swift */; };
 		346BE27C1B14DAB90022039C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346BE27B1B14DAB90022039C /* ViewController.swift */; };
-		346BE27F1B14DAB90022039C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 346BE27D1B14DAB90022039C /* Main.storyboard */; };
 		346BE2811B14DAB90022039C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 346BE2801B14DAB90022039C /* Images.xcassets */; };
 		346BE2841B14DAB90022039C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 346BE2821B14DAB90022039C /* LaunchScreen.xib */; };
 		346BE2901B14DAB90022039C /* MineHuntSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346BE28F1B14DAB90022039C /* MineHuntSwiftTests.swift */; };
+		346BE29B1B14DB500022039C /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 346BE2991B14DB500022039C /* spark.png */; };
+		346BE29C1B14DB500022039C /* spark.sks in Resources */ = {isa = PBXBuildFile; fileRef = 346BE29A1B14DB500022039C /* spark.sks */; };
+		346BE2A11B14DC560022039C /* menuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346BE2A01B14DC560022039C /* menuViewController.swift */; };
+		346BE2A41B14DD200022039C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 346BE2A21B14DD200022039C /* Main.storyboard */; };
+		346BE2A61B14DD650022039C /* menuScrollView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 346BE2A51B14DD650022039C /* menuScrollView.xib */; };
+		346BE2A81B14DDA00022039C /* menuScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346BE2A71B14DDA00022039C /* menuScrollView.swift */; };
+		34C9B6531B17615A002086B3 /* MineHuntImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C9B6521B17615A002086B3 /* MineHuntImages.swift */; };
+		34C9B6551B17622C002086B3 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C9B6541B17622C002086B3 /* GameScene.swift */; };
+		34C9B6571B176286002086B3 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C9B6561B176285002086B3 /* GameViewController.swift */; };
+		34C9B6591B1762AF002086B3 /* gameTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C9B6581B1762AF002086B3 /* gameTile.swift */; };
+		34C9B65B1B1861A2002086B3 /* highScores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C9B65A1B1861A2002086B3 /* highScores.swift */; };
+		34C9B65D1B18636A002086B3 /* scoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34C9B65C1B18636A002086B3 /* scoreTableViewCell.xib */; };
+		34C9B65F1B1863A1002086B3 /* scoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C9B65E1B1863A1002086B3 /* scoreTableViewCell.swift */; };
+		34C9B6611B19FA1E002086B3 /* extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C9B6601B19FA1E002086B3 /* extentions.swift */; };
+		34C9B6621B1F314A002086B3 /* explosion.caf in Resources */ = {isa = PBXBuildFile; fileRef = 346BE29D1B14DB660022039C /* explosion.caf */; };
+		34C9B6641B1F53B4002086B3 /* gameButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C9B6631B1F53B4002086B3 /* gameButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,12 +45,27 @@
 		346BE2781B14DAB90022039C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		346BE2791B14DAB90022039C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		346BE27B1B14DAB90022039C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		346BE27E1B14DAB90022039C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		346BE2801B14DAB90022039C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		346BE2831B14DAB90022039C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		346BE2891B14DAB90022039C /* MineHuntSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MineHuntSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		346BE28E1B14DAB90022039C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		346BE28F1B14DAB90022039C /* MineHuntSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineHuntSwiftTests.swift; sourceTree = "<group>"; };
+		346BE2991B14DB500022039C /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		346BE29A1B14DB500022039C /* spark.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = spark.sks; sourceTree = "<group>"; };
+		346BE29D1B14DB660022039C /* explosion.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = explosion.caf; sourceTree = "<group>"; };
+		346BE2A01B14DC560022039C /* menuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = menuViewController.swift; sourceTree = "<group>"; };
+		346BE2A31B14DD200022039C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		346BE2A51B14DD650022039C /* menuScrollView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = menuScrollView.xib; sourceTree = "<group>"; };
+		346BE2A71B14DDA00022039C /* menuScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = menuScrollView.swift; sourceTree = "<group>"; };
+		34C9B6521B17615A002086B3 /* MineHuntImages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineHuntImages.swift; sourceTree = "<group>"; };
+		34C9B6541B17622C002086B3 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		34C9B6561B176285002086B3 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		34C9B6581B1762AF002086B3 /* gameTile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gameTile.swift; sourceTree = "<group>"; };
+		34C9B65A1B1861A2002086B3 /* highScores.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = highScores.swift; sourceTree = "<group>"; };
+		34C9B65C1B18636A002086B3 /* scoreTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = scoreTableViewCell.xib; sourceTree = "<group>"; };
+		34C9B65E1B1863A1002086B3 /* scoreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = scoreTableViewCell.swift; sourceTree = "<group>"; };
+		34C9B6601B19FA1E002086B3 /* extentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extentions.swift; sourceTree = "<group>"; };
+		34C9B6631B1F53B4002086B3 /* gameButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gameButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,12 +107,27 @@
 		346BE2761B14DAB90022039C /* MineHuntSwift */ = {
 			isa = PBXGroup;
 			children = (
+				34C9B6521B17615A002086B3 /* MineHuntImages.swift */,
 				346BE2791B14DAB90022039C /* AppDelegate.swift */,
 				346BE27B1B14DAB90022039C /* ViewController.swift */,
-				346BE27D1B14DAB90022039C /* Main.storyboard */,
 				346BE2801B14DAB90022039C /* Images.xcassets */,
 				346BE2821B14DAB90022039C /* LaunchScreen.xib */,
+				346BE2A21B14DD200022039C /* Main.storyboard */,
+				346BE2A51B14DD650022039C /* menuScrollView.xib */,
+				346BE2A71B14DDA00022039C /* menuScrollView.swift */,
+				346BE2991B14DB500022039C /* spark.png */,
+				346BE29A1B14DB500022039C /* spark.sks */,
+				346BE29D1B14DB660022039C /* explosion.caf */,
 				346BE2771B14DAB90022039C /* Supporting Files */,
+				346BE2A01B14DC560022039C /* menuViewController.swift */,
+				34C9B6541B17622C002086B3 /* GameScene.swift */,
+				34C9B6561B176285002086B3 /* GameViewController.swift */,
+				34C9B6581B1762AF002086B3 /* gameTile.swift */,
+				34C9B65A1B1861A2002086B3 /* highScores.swift */,
+				34C9B65E1B1863A1002086B3 /* scoreTableViewCell.swift */,
+				34C9B65C1B18636A002086B3 /* scoreTableViewCell.xib */,
+				34C9B6601B19FA1E002086B3 /* extentions.swift */,
+				34C9B6631B1F53B4002086B3 /* gameButton.swift */,
 			);
 			path = MineHuntSwift;
 			sourceTree = "<group>";
@@ -192,8 +237,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				346BE27F1B14DAB90022039C /* Main.storyboard in Resources */,
 				346BE2841B14DAB90022039C /* LaunchScreen.xib in Resources */,
+				346BE2A41B14DD200022039C /* Main.storyboard in Resources */,
+				346BE29C1B14DB500022039C /* spark.sks in Resources */,
+				346BE29B1B14DB500022039C /* spark.png in Resources */,
+				346BE2A61B14DD650022039C /* menuScrollView.xib in Resources */,
+				34C9B65D1B18636A002086B3 /* scoreTableViewCell.xib in Resources */,
+				34C9B6621B1F314A002086B3 /* explosion.caf in Resources */,
 				346BE2811B14DAB90022039C /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -212,7 +262,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34C9B6571B176286002086B3 /* GameViewController.swift in Sources */,
+				34C9B6591B1762AF002086B3 /* gameTile.swift in Sources */,
+				34C9B6551B17622C002086B3 /* GameScene.swift in Sources */,
+				346BE2A11B14DC560022039C /* menuViewController.swift in Sources */,
+				34C9B6531B17615A002086B3 /* MineHuntImages.swift in Sources */,
+				34C9B6641B1F53B4002086B3 /* gameButton.swift in Sources */,
+				34C9B65B1B1861A2002086B3 /* highScores.swift in Sources */,
 				346BE27C1B14DAB90022039C /* ViewController.swift in Sources */,
+				346BE2A81B14DDA00022039C /* menuScrollView.swift in Sources */,
+				34C9B6611B19FA1E002086B3 /* extentions.swift in Sources */,
+				34C9B65F1B1863A1002086B3 /* scoreTableViewCell.swift in Sources */,
 				346BE27A1B14DAB90022039C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -236,20 +296,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		346BE27D1B14DAB90022039C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				346BE27E1B14DAB90022039C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		346BE2821B14DAB90022039C /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				346BE2831B14DAB90022039C /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		346BE2A21B14DD200022039C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				346BE2A31B14DD200022039C /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -409,6 +469,7 @@
 				346BE2951B14DAB90022039C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		346BE2961B14DAB90022039C /* Build configuration list for PBXNativeTarget "MineHuntSwiftTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +478,7 @@
 				346BE2981B14DAB90022039C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

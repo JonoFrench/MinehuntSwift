@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="735-3C-xQ4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="735-3C-xQ4">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -24,7 +24,7 @@
         <!--Menu View Controller-->
         <scene sceneID="EHF-ny-mwd">
             <objects>
-                <viewController id="bBg-b3-KMe" customClass="menuViewController" customModule="MineHuntSwift" sceneMemberID="viewController">
+                <viewController id="bBg-b3-KMe" customClass="menuViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9gd-Bt-uKO"/>
                         <viewControllerLayoutGuide type="bottom" id="ioV-fO-uKs"/>
@@ -46,7 +46,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="actPlay:" destination="bBg-b3-KMe" eventType="touchUpInside" id="IZW-Hs-D0s"/>
+                                    <action selector="actPlay:" destination="bBg-b3-KMe" eventType="touchUpInside" id="IWk-v9-WmK"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mine Hunt" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="avE-0Q-kwo">
@@ -85,8 +85,8 @@
                     <navigationItem key="navigationItem" id="iyp-fc-YKI"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="menuScroll" destination="aDB-Rx-Kl0" id="efX-yF-F5f"/>
-                        <outlet property="playButton" destination="oNv-Vx-Tvh" id="0lf-iP-0l0"/>
+                        <outlet property="menuScroll" destination="aDB-Rx-Kl0" id="Ehb-4i-6c0"/>
+                        <outlet property="playButton" destination="oNv-Vx-Tvh" id="bnu-qc-SwY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kwV-d2-a8R" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -96,19 +96,16 @@
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController storyboardIdentifier="gameViewController" id="BV1-FR-VrT" customClass="GameViewController" customModule="MineHuntSwift" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="gameViewController" id="BV1-FR-VrT" customClass="GameViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="cNp-Pd-x8Y"/>
-                        <viewControllerLayoutGuide type="bottom" id="Cfd-x3-MVE"/>
+                        <viewControllerLayoutGuide type="top" id="maK-i9-Uhn"/>
+                        <viewControllerLayoutGuide type="bottom" id="khH-OB-KpY"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="h3F-Y6-sJM" customClass="SKView">
+                    <view key="view" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <connections>
-                        <outlet property="skView" destination="h3F-Y6-sJM" id="F8T-WT-RFI"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
