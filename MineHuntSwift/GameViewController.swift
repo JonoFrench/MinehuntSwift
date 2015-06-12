@@ -11,7 +11,6 @@ import SpriteKit
 
 class GameViewController: UIViewController {
 
-    
     @IBOutlet var skView: SKView!
     var gameType: Int?
 
@@ -19,16 +18,14 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "homeButtonNotification", name: "menuReturn", object: nil)
         var scene : GameScene = GameScene(size: skView.bounds.size)
-
-        scene.gameType = self.gameType!;
-        skView.showsFPS = true;
-        skView.showsNodeCount = true;
-        skView.ignoresSiblingOrder = false;
+        scene.gameType = self.gameType!
+        skView.showsFPS = false
+        skView.showsNodeCount = false
+        skView.ignoresSiblingOrder = true
         scene.size = skView.bounds.size
         scene.scaleMode = SKSceneScaleMode.AspectFill
         scene.gameType = gameType!
         skView.presentScene(scene)
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,20 +36,16 @@ class GameViewController: UIViewController {
 
     required init(coder aDecoder: NSCoder) {
         // Create and configure the scene.
-        
-        
         super.init(coder: aDecoder)
-
     }
 
+    // Hide the status bar
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
-
     
     func homeButtonNotification(){
-
-    self.navigationController?.popViewControllerAnimated(true)
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
 }

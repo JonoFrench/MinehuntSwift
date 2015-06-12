@@ -18,17 +18,12 @@ class menuScrollView: UIView,UITableViewDataSource,UITableViewDelegate {
     required init(coder: NSCoder)
     {
         super.init(coder: coder)
-        
-        //NSBundle.mainBundle().loadNibNamed("menuScrollView", owner: self, options: nil)
     }
     
     func setup()
     {
         self.tblScores.registerNib(UINib (nibName: "scoreTableViewCell", bundle: nil), forCellReuseIdentifier: "scoreCell")
-      //  self.tblScores.registerNib:[UINib nibWithNibName:@"scoreTableViewCell" bundle:nil] forCellReuseIdentifier:@"scoreCell"
         self.scores = highScores().getHighScores(self.gameType)
-
-        
         tblScores.delegate = self
         tblScores.dataSource = self
         tblScores.reloadData()
@@ -56,10 +51,12 @@ class menuScrollView: UIView,UITableViewDataSource,UITableViewDelegate {
         
         let score = scores[indexPath.row]
         let cell:scoreTableViewCell = self.tblScores.dequeueReusableCellWithIdentifier("scoreCell", forIndexPath: indexPath) as! scoreTableViewCell
-        
+
+        let sec = score.time % 60
+        let min = score.time / 60
+        cell.lblTime.text = String(format: "%d:%02d",min,sec)
         cell.lblDate.text = score.date
         cell.lblRank.text = String( indexPath.row + 1)
-        cell.lblTime.text = String (score.time) + " Secs"
         return cell
     }
     

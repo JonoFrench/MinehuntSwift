@@ -21,6 +21,7 @@ class GameScene: SKScene, tileDelegate {
     var numRows :Int
     var numCols :Int
     var timerTime :Int32
+    var horizontalStart : Int
     var screenWidth : CGFloat?
     var screenHeight : CGFloat?
     var gameOver : Bool
@@ -44,6 +45,7 @@ class GameScene: SKScene, tileDelegate {
         numBombs = 0
         timerTime = 0
         numCols = 0
+        horizontalStart = 0
         super.init(size: size)
     }
     
@@ -66,6 +68,7 @@ class GameScene: SKScene, tileDelegate {
         numBombs = 0
         timerTime = 0
         numCols = 0
+        horizontalStart = 0
         super.init(coder: aDecoder)
     }
     
@@ -110,11 +113,12 @@ class GameScene: SKScene, tileDelegate {
     func setGame(){
         let tileSize : Int = Int(screenWidth!) / numCols
         let startpos : Int = Int (screenHeight!) - (tileSize / 2)
+        horizontalStart = (Int(screenWidth!) - (tileSize * numCols)) / 2
         for var x1 = 0; x1 < numRows; ++x1{
             var colArray : Array<gameTile> = []
             for var y1 = 0; y1 < numCols; ++y1{
                 var gt : gameTile = gameTile()
-                gt.initWithPositionX((tileSize/2)+(y1*tileSize), y: startpos-(x1*tileSize), row: x1, col: y1,tilesize: tileSize)
+                gt.initWithPositionX(horizontalStart + (tileSize/2)+(y1*tileSize), y: startpos-(x1*tileSize), row: x1, col: y1,tilesize: tileSize)
                 gt.delegate = self
                 colArray.append(gt)
                 self.addChild(gt)
@@ -271,7 +275,6 @@ class GameScene: SKScene, tileDelegate {
         gameOverButton.userInteractionEnabled = true
         gameOverButton.setTouchUpInsideTarget(self,action: Selector("gameReturn"))
         gameOverButton.setTouchUpTarget(self,action: Selector("gameReturn"))
-        
         
         self.addChild(gameOverButton)
         }

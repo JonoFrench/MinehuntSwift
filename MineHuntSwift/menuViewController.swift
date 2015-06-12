@@ -35,22 +35,17 @@ class menuViewController: UIViewController,UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         navigationController?.navigationBarHidden = true;
         menuScroll.delegate = self
-       // menuScroll.alwaysBounceHorizontal = true
-        menuScroll.pagingEnabled = true
-        menuScroll.userInteractionEnabled = true
     }
 
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated);
         
         let bundle = NSBundle(forClass: menuScrollView.self)
         for i in 0...2 {
-            var frame: CGRect
-            frame = CGRectZero
+            var frame: CGRect = CGRectZero
             frame.origin.x = menuScroll.frame.size.width * CGFloat(i)
             frame.origin.y = 0
             frame.size = menuScroll.frame.size
@@ -69,16 +64,18 @@ class menuViewController: UIViewController,UIScrollViewDelegate {
                 subview.lblPage.text = "Oops"
 
             }
+        
             subview.frame = frame
             subview.layoutIfNeeded()
             menuScroll.addSubview(subview)
-            menuScroll.layoutIfNeeded()
-            
         }
-
-        menuScroll.contentSize = CGSizeMake(self.menuScroll.frame.size.width * 3, self.menuScroll.frame.size.height);
+        menuScroll.contentSize = CGSizeMake(menuScroll.frame.size.width * 3, menuScroll.frame.size.height);
         menuScroll.layoutIfNeeded()
-        
+        menuScroll.pagingEnabled = true
+        menuScroll.userInteractionEnabled = true
+        menuScroll.decelerationRate = UIScrollViewDecelerationRateNormal
+        menuScroll.scrollEnabled = true
+        menuScroll.bounces = true        
     }
     
     override func didReceiveMemoryWarning() {
@@ -89,7 +86,7 @@ class menuViewController: UIViewController,UIScrollViewDelegate {
     // no vertical scrolling please
     func scrollViewDidScroll(scrollView: UIScrollView)
     {
-        scrollView.setContentOffset(CGPointMake(scrollView.contentOffset.x,0), animated: true)
+//        scrollView.setContentOffset(CGPointMake(scrollView.contentOffset.x,0), animated: false)
     }
     
     //get the game number of the page
