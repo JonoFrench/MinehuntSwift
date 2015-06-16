@@ -28,6 +28,15 @@ public class MineHuntImages : NSObject {
         static var shadow: NSShadow = NSShadow(color: UIColor.darkGrayColor(), offset: CGSizeMake(-5.1, 1.1), blurRadius: 5)
     }
 
+    private struct imageCache{
+        static var blankTile : UIImage?
+        static var mineTile : UIImage?
+        static var questTile : UIImage?
+        static var bombTile : UIImage?
+        static var explosionTile : UIImage?
+        static var emptyTile : UIImage?
+    }
+    
     //// Colors
 
     public class var redColour: UIColor { return Cache.redColour }
@@ -749,22 +758,30 @@ public class MineHuntImages : NSObject {
     //// Generated Images
 
     public class func imageOfBlank(#frame: CGRect) -> UIImage {
+        
+        if (imageCache.blankTile != nil) {
+            return imageCache.blankTile!
+        }
+        
         UIGraphicsBeginImageContextWithOptions(frame.size, false, 0)
             MineHuntImages.drawBlank(frame: frame)
 
         let imageOfBlank = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
-
+        imageCache.blankTile = imageOfBlank
         return imageOfBlank
     }
 
     public class func imageOfMine(#frame: CGRect) -> UIImage {
+        if (imageCache.bombTile != nil) {
+            return imageCache.bombTile!
+        }
         UIGraphicsBeginImageContextWithOptions(frame.size, false, 0)
             MineHuntImages.drawMine(frame: frame)
 
         let imageOfMine = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
-
+        imageCache.bombTile = imageOfMine
         return imageOfMine
     }
 
@@ -789,32 +806,41 @@ public class MineHuntImages : NSObject {
     }
 
     public class func imageOfQuestion(#frame: CGRect) -> UIImage {
+        if (imageCache.questTile != nil) {
+            return imageCache.questTile!
+        }
         UIGraphicsBeginImageContextWithOptions(frame.size, false, 0)
             MineHuntImages.drawQuestion(frame: frame)
 
         let imageOfQuestion = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
-
+        imageCache.questTile = imageOfQuestion
         return imageOfQuestion
     }
 
     public class func imageOfExplosion(#frame: CGRect) -> UIImage {
+        if (imageCache.explosionTile != nil) {
+            return imageCache.explosionTile!
+        }
         UIGraphicsBeginImageContextWithOptions(frame.size, false, 0)
             MineHuntImages.drawExplosion(frame: frame)
 
         let imageOfExplosion = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
-
+        imageCache.explosionTile = imageOfExplosion
         return imageOfExplosion
     }
 
     public class func imageOfEmpty(#frame: CGRect) -> UIImage {
+        if (imageCache.emptyTile != nil) {
+            return imageCache.emptyTile!
+        }
         UIGraphicsBeginImageContextWithOptions(frame.size, false, 0)
             MineHuntImages.drawEmpty(frame: frame)
 
         let imageOfEmpty = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
-
+        imageCache.emptyTile = imageOfEmpty
         return imageOfEmpty
     }
 
