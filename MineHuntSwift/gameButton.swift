@@ -27,7 +27,7 @@ class gameButton :SKSpriteNode  {
     var selectedTexture : SKTexture?
 //    var disabledTexture : SKTexture
     
-    override init(texture: SKTexture!, color: UIColor!, size: CGSize) {
+    override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         //var col = UIColor.redColor()
         //var s:CGSize = CGSize(width: 46,height: 46)
         super.init(texture: texture, color: color, size: size)
@@ -79,8 +79,8 @@ class gameButton :SKSpriteNode  {
     }
     
     //called when the user taps the button
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        println("touches began")
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        print("touches began")
         if isEnabled{
             if (actionTouchDown != nil){
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
@@ -91,15 +91,15 @@ class gameButton :SKSpriteNode  {
         
     }
     
-    override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
 
     }
     
     //called when the user finishes touching the button
-    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
 //        println("touches ended")
         for touch : AnyObject in touches {
-            var touchPoint : CGPoint = touch.locationInNode(self.parent)
+            let touchPoint : CGPoint = touch.locationInNode(self.parent!)
             
         
         

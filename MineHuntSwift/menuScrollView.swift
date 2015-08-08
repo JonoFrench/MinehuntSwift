@@ -15,7 +15,7 @@ class menuScrollView: UIView,UITableViewDataSource,UITableViewDelegate {
     var gameType : Int = 0
     var scores : Array<highScore>=[]
     
-    required init(coder: NSCoder)
+    required init?(coder: NSCoder)
     {
         super.init(coder: coder)
     }

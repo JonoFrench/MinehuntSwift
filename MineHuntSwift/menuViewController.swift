@@ -16,7 +16,7 @@ class menuViewController: UIViewController,UIScrollViewDelegate {
     @IBOutlet weak var playButton: UIButton!
     var gameType :Int = 0
 
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
        
        super.init(coder: aDecoder)
 
@@ -49,7 +49,7 @@ class menuViewController: UIViewController,UIScrollViewDelegate {
             frame.origin.x = menuScroll.frame.size.width * CGFloat(i)
             frame.origin.y = 0
             frame.size = menuScroll.frame.size
-            var subview = bundle.loadNibNamed("menuScrollView", owner: nil, options: nil)[0] as! menuScrollView
+            let subview = bundle.loadNibNamed("menuScrollView", owner: nil, options: nil)[0] as! menuScrollView
             subview.gameType = i
             subview.setup()
             

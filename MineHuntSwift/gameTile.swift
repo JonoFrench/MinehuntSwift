@@ -41,7 +41,7 @@ class gameTile: SKSpriteNode {
     var delegate:tileDelegate?
     var blankTile : UIImage?
     
-    override init(texture: SKTexture!, color: UIColor!, size: CGSize) {
+    override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         hasFlag = false;
         hasMine = false;
         hasHint = false;
@@ -51,8 +51,8 @@ class gameTile: SKSpriteNode {
         tileTap=0;
         state = TileState.kTileStateUnTouched
         tileSize = CGRect(x: 0, y: 0, width: 46, height: 46)
-        var col = UIColor.redColor()
-        var s:CGSize = CGSize(width: 46,height: 46)
+        let col = UIColor.redColor()
+        let s:CGSize = CGSize(width: 46,height: 46)
         super.init(texture: texture, color: col, size: s)
     }
     
@@ -62,7 +62,7 @@ class gameTile: SKSpriteNode {
     
     func initWithPositionX(x :Int, y :Int, row :Int, col :Int, tilesize :Int)//->gameTile
     {
-        let ts : CGSize = CGSize(width: tilesize, height: tilesize)
+ //       let ts : CGSize = CGSize(width: tilesize, height: tilesize)
         tileSize = CGRect(x: 0, y: 0, width: tilesize, height: tilesize)
         blankTile = MineHuntImages.imageOfBlank(frame: tileSize!)
         tex = SKTexture(image: MineHuntImages.imageOfBlank(frame: tileSize!))
@@ -72,7 +72,7 @@ class gameTile: SKSpriteNode {
         xpos = x
         ypos = y
         width = tilesize
-        var s:CGSize = CGSize(width: tilesize,height: tilesize)
+        let s:CGSize = CGSize(width: tilesize,height: tilesize)
         self.size = s
         self.xScale = 1;
         self.yScale = 1;
@@ -167,13 +167,13 @@ class gameTile: SKSpriteNode {
         tex = SKTexture.init(image: MineHuntImages.imageOfMine(frame: tileSize!))
         self.texture = tex
 
-        var timer = NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(expcount), target: self, selector: Selector("explosion"), userInfo: nil, repeats: false)
+        NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(expcount), target: self, selector: Selector("explosion"), userInfo: nil, repeats: false)
     }
     
     func explosion(){
         
         soundAction = SKAction.playSoundFileNamed("explosion.caf", waitForCompletion: false)
-        runAction(soundAction)
+        runAction(soundAction!)
         tex = SKTexture.init(image: MineHuntImages.imageOfExplosion(frame: tileSize!))
         self.texture = tex
         let smokepath = NSBundle.mainBundle().pathForResource("spark", ofType: "sks")
@@ -189,7 +189,7 @@ class gameTile: SKSpriteNode {
     
     // #pragma mark touch
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         if (gameOver){
             return
         }
@@ -202,7 +202,7 @@ class gameTile: SKSpriteNode {
     }
     
     
-    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         if (gameOver){
             return
         }

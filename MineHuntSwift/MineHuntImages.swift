@@ -35,6 +35,7 @@ public class MineHuntImages : NSObject {
         static var bombTile : UIImage?
         static var explosionTile : UIImage?
         static var emptyTile : UIImage?
+        static var flagTile : UIImage?
     }
     
     //// Colors
@@ -54,10 +55,10 @@ public class MineHuntImages : NSObject {
 
     //// Drawing Methods
 
-    public class func drawBlank(#frame: CGRect) {
+    public class func drawBlank(frame frame: CGRect) {
 
         //// Rectangle Drawing
-        var rectanglePath = UIBezierPath()
+        let rectanglePath = UIBezierPath()
         rectanglePath.moveToPoint(CGPointMake(frame.minX + 0.13965 * frame.width, frame.minY + 0.02500 * frame.height))
         rectanglePath.addLineToPoint(CGPointMake(frame.minX + 0.86035 * frame.width, frame.minY + 0.02500 * frame.height))
         rectanglePath.addCurveToPoint(CGPointMake(frame.minX + 0.92475 * frame.width, frame.minY + 0.02991 * frame.height), controlPoint1: CGPointMake(frame.minX + 0.89336 * frame.width, frame.minY + 0.02500 * frame.height), controlPoint2: CGPointMake(frame.minX + 0.90987 * frame.width, frame.minY + 0.02500 * frame.height))
@@ -87,7 +88,7 @@ public class MineHuntImages : NSObject {
         rectanglePath.stroke()
     }
 
-    public class func drawMine(#frame: CGRect) {
+    public class func drawMine(frame frame: CGRect) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()
 
@@ -102,7 +103,7 @@ public class MineHuntImages : NSObject {
 
 
         //// Star Drawing
-        var starPath = UIBezierPath()
+        let starPath = UIBezierPath()
         starPath.moveToPoint(CGPointMake(frame.minX + 0.52500 * frame.width, frame.minY + 0.17500 * frame.height))
         starPath.addLineToPoint(CGPointMake(frame.minX + 0.61975 * frame.width, frame.minY + 0.31150 * frame.height))
         starPath.addLineToPoint(CGPointMake(frame.minX + 0.79017 * frame.width, frame.minY + 0.27751 * frame.height))
@@ -133,7 +134,7 @@ public class MineHuntImages : NSObject {
         CGContextBeginTransparencyLayer(context, nil)
         let starOpaqueShadow = (MineHuntImages.shadow.shadowColor as! UIColor).colorWithAlphaComponent(1)
         CGContextSetShadowWithColor(context, MineHuntImages.shadow.shadowOffset, MineHuntImages.shadow.shadowBlurRadius, starOpaqueShadow.CGColor)
-        CGContextSetBlendMode(context, kCGBlendModeSourceOut)
+        CGContextSetBlendMode(context, CGBlendMode.SourceOut)
         CGContextBeginTransparencyLayer(context, nil)
 
         starOpaqueShadow.setFill()
@@ -148,12 +149,12 @@ public class MineHuntImages : NSObject {
 
 
         //// Oval Drawing
-        var ovalPath = UIBezierPath(ovalInRect: CGRectMake(frame.minX + floor(frame.width * 0.57500 + 0.5), frame.minY + floor(frame.height * 0.40000 + 0.5), floor(frame.width * 0.67500 + 0.5) - floor(frame.width * 0.57500 + 0.5), floor(frame.height * 0.50000 + 0.5) - floor(frame.height * 0.40000 + 0.5)))
+        let ovalPath = UIBezierPath(ovalInRect: CGRectMake(frame.minX + floor(frame.width * 0.57500 + 0.5), frame.minY + floor(frame.height * 0.40000 + 0.5), floor(frame.width * 0.67500 + 0.5) - floor(frame.width * 0.57500 + 0.5), floor(frame.height * 0.50000 + 0.5) - floor(frame.height * 0.40000 + 0.5)))
         UIColor.lightGrayColor().setFill()
         ovalPath.fill()
     }
 
-    public class func drawBombCount(#frame: CGRect, numBombs: String) {
+    public class func drawBombCount(frame frame: CGRect, numBombs: String) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()
 
@@ -201,7 +202,7 @@ public class MineHuntImages : NSObject {
         CGContextRestoreGState(context)
     }
 
-    public class func drawFlag(#frame: CGRect) {
+    public class func drawFlag(frame frame: CGRect) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()
 
@@ -234,7 +235,7 @@ public class MineHuntImages : NSObject {
         CGContextRestoreGState(context)
     }
 
-    public class func drawQuestion(#frame: CGRect) {
+    public class func drawQuestion(frame frame: CGRect) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()
 
@@ -249,7 +250,7 @@ public class MineHuntImages : NSObject {
 
 
         //// Text Drawing
-        var textPath = UIBezierPath()
+        let textPath = UIBezierPath()
         textPath.moveToPoint(CGPointMake(frame.minX + 0.46638 * frame.width, frame.minY + 0.73359 * frame.height))
         textPath.addLineToPoint(CGPointMake(frame.minX + 0.55383 * frame.width, frame.minY + 0.73359 * frame.height))
         textPath.addLineToPoint(CGPointMake(frame.minX + 0.55383 * frame.width, frame.minY + 0.82500 * frame.height))
@@ -281,7 +282,7 @@ public class MineHuntImages : NSObject {
         textPath.fill()
     }
 
-    public class func drawExplosion(#frame: CGRect) {
+    public class func drawExplosion(frame frame: CGRect) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()
 
@@ -296,7 +297,7 @@ public class MineHuntImages : NSObject {
 
 
         //// Bezier 3 Drawing
-        var bezier3Path = UIBezierPath()
+        let bezier3Path = UIBezierPath()
         bezier3Path.moveToPoint(CGPointMake(frame.minX + 0.64475 * frame.width, frame.minY + 0.17594 * frame.height))
         bezier3Path.addCurveToPoint(CGPointMake(frame.minX + 0.68567 * frame.width, frame.minY + 0.23279 * frame.height), controlPoint1: CGPointMake(frame.minX + 0.66247 * frame.width, frame.minY + 0.19239 * frame.height), controlPoint2: CGPointMake(frame.minX + 0.67627 * frame.width, frame.minY + 0.21166 * frame.height))
         bezier3Path.addLineToPoint(CGPointMake(frame.minX + 0.67503 * frame.width, frame.minY + 0.22539 * frame.height))
@@ -330,10 +331,10 @@ public class MineHuntImages : NSObject {
         CGContextRestoreGState(context)
     }
 
-    public class func drawEmpty(#frame: CGRect) {
+    public class func drawEmpty(frame frame: CGRect) {
 
         //// Rectangle Drawing
-        var rectanglePath = UIBezierPath()
+        let rectanglePath = UIBezierPath()
         rectanglePath.moveToPoint(CGPointMake(frame.minX + 0.16473 * frame.width, frame.minY + 0.02500 * frame.height))
         rectanglePath.addLineToPoint(CGPointMake(frame.minX + 0.86035 * frame.width, frame.minY + 0.02500 * frame.height))
         rectanglePath.addCurveToPoint(CGPointMake(frame.minX + 0.92475 * frame.width, frame.minY + 0.02991 * frame.height), controlPoint1: CGPointMake(frame.minX + 0.89336 * frame.width, frame.minY + 0.02500 * frame.height), controlPoint2: CGPointMake(frame.minX + 0.90987 * frame.width, frame.minY + 0.02500 * frame.height))
@@ -363,17 +364,17 @@ public class MineHuntImages : NSObject {
         rectanglePath.stroke()
     }
 
-    public class func drawButton(#frame: CGRect) {
+    public class func drawButton(frame frame: CGRect) {
 
         //// Rectangle Drawing
-        var rectanglePath = UIBezierPath()
+        let rectanglePath = UIBezierPath()
         rectanglePath.moveToPoint(CGPointMake(frame.minX + 0.00833 * frame.width, frame.minY + 0.97500 * frame.height))
         rectanglePath.addLineToPoint(CGPointMake(frame.minX + 0.99167 * frame.width, frame.minY + 0.97500 * frame.height))
         rectanglePath.addLineToPoint(CGPointMake(frame.minX + 0.99167 * frame.width, frame.minY + 0.02500 * frame.height))
         rectanglePath.addLineToPoint(CGPointMake(frame.minX + 0.00833 * frame.width, frame.minY + 0.02500 * frame.height))
         rectanglePath.addLineToPoint(CGPointMake(frame.minX + 0.00833 * frame.width, frame.minY + 0.97500 * frame.height))
         rectanglePath.closePath()
-        rectanglePath.lineJoinStyle = kCGLineJoinBevel;
+        rectanglePath.lineJoinStyle = CGLineJoin.Bevel;
 
         UIColor.grayColor().setFill()
         rectanglePath.fill()
@@ -382,7 +383,7 @@ public class MineHuntImages : NSObject {
         rectanglePath.stroke()
     }
 
-    public class func drawGameOver(#frame: CGRect) {
+    public class func drawGameOver(frame frame: CGRect) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()
 
@@ -397,7 +398,7 @@ public class MineHuntImages : NSObject {
 
 
         //// Text Drawing
-        var textPath = UIBezierPath()
+        let textPath = UIBezierPath()
         textPath.moveToPoint(CGPointMake(frame.minX + 0.15550 * frame.width, frame.minY + 0.34403 * frame.height))
         textPath.addCurveToPoint(CGPointMake(frame.minX + 0.17622 * frame.width, frame.minY + 0.43750 * frame.height), controlPoint1: CGPointMake(frame.minX + 0.16678 * frame.width, frame.minY + 0.36181 * frame.height), controlPoint2: CGPointMake(frame.minX + 0.17369 * frame.width, frame.minY + 0.39297 * frame.height))
         textPath.addLineToPoint(CGPointMake(frame.minX + 0.16099 * frame.width, frame.minY + 0.43750 * frame.height))
@@ -614,7 +615,7 @@ public class MineHuntImages : NSObject {
         CGContextRestoreGState(context)
     }
 
-    public class func drawWon(#frame: CGRect) {
+    public class func drawWon(frame frame: CGRect) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()
 
@@ -629,7 +630,7 @@ public class MineHuntImages : NSObject {
 
 
         //// Text Drawing
-        var textPath = UIBezierPath()
+        let textPath = UIBezierPath()
         textPath.moveToPoint(CGPointMake(frame.minX + 0.14661 * frame.width, frame.minY + 0.29136 * frame.height))
         textPath.addLineToPoint(CGPointMake(frame.minX + 0.16549 * frame.width, frame.minY + 0.29136 * frame.height))
         textPath.addLineToPoint(CGPointMake(frame.minX + 0.19983 * frame.width, frame.minY + 0.46372 * frame.height))
@@ -757,7 +758,7 @@ public class MineHuntImages : NSObject {
 
     //// Generated Images
 
-    public class func imageOfBlank(#frame: CGRect) -> UIImage {
+    public class func imageOfBlank(frame frame: CGRect) -> UIImage {
         
         if (imageCache.blankTile != nil) {
             return imageCache.blankTile!
@@ -772,7 +773,7 @@ public class MineHuntImages : NSObject {
         return imageOfBlank
     }
 
-    public class func imageOfMine(#frame: CGRect) -> UIImage {
+    public class func imageOfMine(frame frame: CGRect) -> UIImage {
         if (imageCache.bombTile != nil) {
             return imageCache.bombTile!
         }
@@ -785,7 +786,8 @@ public class MineHuntImages : NSObject {
         return imageOfMine
     }
 
-    public class func imageOfBombCount(#frame: CGRect, numBombs: String) -> UIImage {
+    public class func imageOfBombCount(frame frame: CGRect, numBombs: String) -> UIImage {
+        
         UIGraphicsBeginImageContextWithOptions(frame.size, false, 0)
             MineHuntImages.drawBombCount(frame: frame, numBombs: numBombs)
 
@@ -795,17 +797,20 @@ public class MineHuntImages : NSObject {
         return imageOfBombCount
     }
 
-    public class func imageOfFlag(#frame: CGRect) -> UIImage {
+    public class func imageOfFlag(frame frame: CGRect) -> UIImage {
+        if (imageCache.flagTile != nil) {
+            return imageCache.flagTile!
+        }
         UIGraphicsBeginImageContextWithOptions(frame.size, false, 0)
             MineHuntImages.drawFlag(frame: frame)
 
         let imageOfFlag = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
-
+        imageCache.flagTile = imageOfFlag
         return imageOfFlag
     }
 
-    public class func imageOfQuestion(#frame: CGRect) -> UIImage {
+    public class func imageOfQuestion(frame frame: CGRect) -> UIImage {
         if (imageCache.questTile != nil) {
             return imageCache.questTile!
         }
@@ -818,7 +823,7 @@ public class MineHuntImages : NSObject {
         return imageOfQuestion
     }
 
-    public class func imageOfExplosion(#frame: CGRect) -> UIImage {
+    public class func imageOfExplosion(frame frame: CGRect) -> UIImage {
         if (imageCache.explosionTile != nil) {
             return imageCache.explosionTile!
         }
@@ -831,7 +836,7 @@ public class MineHuntImages : NSObject {
         return imageOfExplosion
     }
 
-    public class func imageOfEmpty(#frame: CGRect) -> UIImage {
+    public class func imageOfEmpty(frame frame: CGRect) -> UIImage {
         if (imageCache.emptyTile != nil) {
             return imageCache.emptyTile!
         }
@@ -844,7 +849,7 @@ public class MineHuntImages : NSObject {
         return imageOfEmpty
     }
 
-    public class func imageOfButton(#frame: CGRect) -> UIImage {
+    public class func imageOfButton(frame frame: CGRect) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(frame.size, false, 0)
             MineHuntImages.drawButton(frame: frame)
 
@@ -854,7 +859,7 @@ public class MineHuntImages : NSObject {
         return imageOfButton
     }
 
-    public class func imageOfGameOver(#frame: CGRect) -> UIImage {
+    public class func imageOfGameOver(frame frame: CGRect) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(frame.size, false, 0)
             MineHuntImages.drawGameOver(frame: frame)
 
@@ -864,7 +869,7 @@ public class MineHuntImages : NSObject {
         return imageOfGameOver
     }
 
-    public class func imageOfWon(#frame: CGRect) -> UIImage {
+    public class func imageOfWon(frame frame: CGRect) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(frame.size, false, 0)
             MineHuntImages.drawWon(frame: frame)
 

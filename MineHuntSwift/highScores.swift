@@ -42,13 +42,13 @@ class highScores: NSObject {
         
         dateFormatter.dateFormat = "dd-MM-YYY"
         
-        if var data = standardDefaults.dataForKey(keyName){
+        if let data = standardDefaults.dataForKey(keyName){
             
             scoreArray = NSKeyedUnarchiver.unarchiveObjectWithData(data) as! [highScore]
         }
         else{
-            for i in 0...9{
-                var hs :highScore = highScore()
+            for _ in 0...9{
+                let hs :highScore = highScore()
                 hs.time = 3600
                 hs.date = dateFormatter.stringFromDate(NSDate())
                 scoreArray.append(hs)
@@ -59,7 +59,7 @@ class highScores: NSObject {
     }
     
     func saveHighScores(gameType:Int){
-        var keyName = "scores" + String(gameType)
+        let keyName = "scores" + String(gameType)
         let standardDefaults:NSUserDefaults = NSUserDefaults.standardUserDefaults()
         let enc = NSKeyedArchiver.archivedDataWithRootObject(scoreArray)
         standardDefaults.setObject(enc, forKey: keyName)
@@ -72,7 +72,7 @@ class highScore : NSObject,NSCoding {
     var time:Int32=0
     var date:String = ""
     
-    required init(coder aDecoder: NSCoder)
+    required init?(coder aDecoder: NSCoder)
     {
         time = aDecoder.decodeIntForKey("gametime")
         date = aDecoder.decodeObjectForKey("gamedate") as! String
@@ -88,13 +88,6 @@ class highScore : NSObject,NSCoding {
         encoder.encodeObject(String(date), forKey:"gamedate")
     
     }
-    
-//    func initWithCoder(decoder :NSCoder )
-//    {
-//        time = decoder.decodeIntForKey("gametime")
-//        date = (decoder.decodeObjectForKey("gamedate") as? String)!
-//
-//    }
     
     
 }

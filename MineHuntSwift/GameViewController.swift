@@ -17,11 +17,11 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "homeButtonNotification", name: "menuReturn", object: nil)
-        var scene : GameScene = GameScene(size: skView.bounds.size)
+        let scene : GameScene = GameScene(size: skView.bounds.size)
         scene.gameType = self.gameType!
         skView.showsFPS = false
         skView.showsNodeCount = false
-        skView.ignoresSiblingOrder = true
+        skView.ignoresSiblingOrder = false
         scene.size = skView.bounds.size
         scene.scaleMode = SKSceneScaleMode.AspectFill
         scene.gameType = gameType!
@@ -34,7 +34,7 @@ class GameViewController: UIViewController {
     }
     
 
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         // Create and configure the scene.
         super.init(coder: aDecoder)
     }
@@ -45,7 +45,10 @@ class GameViewController: UIViewController {
     }
     
     func homeButtonNotification(){
-        self.navigationController?.popViewControllerAnimated(true)
+        dispatch_async(dispatch_get_main_queue(), {
+            self.navigationController?.popViewControllerAnimated(true)
+        })
+        
     }
     
 }

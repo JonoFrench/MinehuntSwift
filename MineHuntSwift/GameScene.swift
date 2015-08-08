@@ -105,8 +105,8 @@ class GameScene: SKScene, tileDelegate {
         flagCounter = numBombs
         gameOver = false
         self.setGame()
-        var clockTimer : NSTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "timerShowTick:", userInfo: nil, repeats: true)
-        var runLoop : NSRunLoop = NSRunLoop.currentRunLoop()
+        let clockTimer : NSTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "timerShowTick:", userInfo: nil, repeats: true)
+        let runLoop : NSRunLoop = NSRunLoop.currentRunLoop()
         runLoop.addTimer(clockTimer, forMode: NSDefaultRunLoopMode)
     }
     
@@ -117,7 +117,7 @@ class GameScene: SKScene, tileDelegate {
         for var x1 = 0; x1 < numRows; ++x1{
             var colArray : Array<gameTile> = []
             for var y1 = 0; y1 < numCols; ++y1{
-                var gt : gameTile = gameTile()
+                let gt : gameTile = gameTile()
                 gt.initWithPositionX(horizontalStart + (tileSize/2)+(y1*tileSize), y: startpos-(x1*tileSize), row: x1, col: y1,tilesize: tileSize)
                 gt.delegate = self
                 colArray.append(gt)
@@ -128,9 +128,9 @@ class GameScene: SKScene, tileDelegate {
         
         // Set Mines
         for var mines = 0; mines < numBombs; ++mines{
-            var x = arc4random() % UInt32( numRows)
-            var y = arc4random() % UInt32( numCols)
-            var gt : gameTile = mineArray[Int(x)][Int(y)]
+            let x = arc4random() % UInt32( numRows)
+            let y = arc4random() % UInt32( numCols)
+            let gt : gameTile = mineArray[Int(x)][Int(y)]
             if !gt.hasMine{
                 gt.setMine(true)
             }
@@ -143,7 +143,7 @@ class GameScene: SKScene, tileDelegate {
         
         for var x1 = 0; x1 < numRows; ++x1{
             for var y1 = 0; y1 < numCols; ++y1{
-                var gt : gameTile = mineArray[Int(x1)][Int(y1)]
+                let gt : gameTile = mineArray[Int(x1)][Int(y1)]
                 if !gt.hasMine{
                     let c = getHint(x1, col: y1)
                     gt.setHint(c)
@@ -164,7 +164,7 @@ class GameScene: SKScene, tileDelegate {
         
         for var r = startRow; r <= endRow;++r{
             for var c = startCol; c <= endCol; ++c{
-                var gt : gameTile = mineArray[r][c]
+                let gt : gameTile = mineArray[r][c]
                 if gt.hasMine {
                     ++hint
                 }
@@ -181,7 +181,7 @@ class GameScene: SKScene, tileDelegate {
         
         for var r = startRow; r <= endRow;++r{
             for var c = startCol; c <= endCol; ++c{
-                var gt : gameTile = mineArray[r][c]
+                let gt : gameTile = mineArray[r][c]
                 if !gt.hasMine && !gt.hasHint{
                     gt.showHint()
                 }
@@ -237,7 +237,7 @@ class GameScene: SKScene, tileDelegate {
         }
         
         gameOver = true;
-        var gameOverButton : gameButton = gameButton()
+        let gameOverButton : gameButton = gameButton()
         let btnImage :UIImage = MineHuntImages.imageOfGameOver(frame: CGRect(x: 0, y: 0, width: screenWidth!/2, height: (screenWidth!/2)/3))
         gameOverButton.texture = SKTexture(image: btnImage)
         gameOverButton.size = btnImage.size
@@ -265,9 +265,9 @@ class GameScene: SKScene, tileDelegate {
     if c == numBombs {
         gameOver = true;
     //add the score to the highscore
-        var hs : highScores = highScores()
+        let hs : highScores = highScores()
         hs.newScore(timerTime, gameType: self.gameType)
-        var gameOverButton : gameButton = gameButton()
+        let gameOverButton : gameButton = gameButton()
         let btnImage :UIImage = MineHuntImages.imageOfWon(frame: CGRect(x: 0, y: 0, width: screenWidth!/2, height: (screenWidth!/2)/3))
         gameOverButton.texture = SKTexture(image: btnImage)
         gameOverButton.size = btnImage.size
