@@ -22,22 +22,24 @@ class menuScrollView: UIView,UITableViewDataSource,UITableViewDelegate {
     
     func setup()
     {
-        self.tblScores.registerNib(UINib (nibName: "scoreTableViewCell", bundle: nil), forCellReuseIdentifier: "scoreCell")
+        self.tblScores.register(UINib (nibName: "scoreTableViewCell", bundle: nil), forCellReuseIdentifier: "scoreCell")
         self.scores = highScores().getHighScores(self.gameType)
         tblScores.delegate = self
         tblScores.dataSource = self
         tblScores.reloadData()
+        tblScores.bounces = false
+        tblScores.allowsSelection = false
     }
 
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return scores.count
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
       
         var heightDiv = 10.0;
         if (self.tblScores.frame.size.height/10 < 40) {
@@ -47,16 +49,26 @@ class menuScrollView: UIView,UITableViewDataSource,UITableViewDelegate {
         
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let score = scores[indexPath.row]
-        let cell:scoreTableViewCell = self.tblScores.dequeueReusableCellWithIdentifier("scoreCell", forIndexPath: indexPath) as! scoreTableViewCell
-
-        let sec = score.time % 60
-        let min = score.time / 60
-        cell.lblTime.text = String(format: "%d:%02d",min,sec)
-        cell.lblDate.text = score.date
+        let cell:scoreTableViewCell = self.tblScores.dequeueReusableCell(withIdentifier: "scoreCell", for: indexPath) as! scoreTableViewCell
+        cell.lblTime.textAlignment = .right
+        if score.time != 3600 {
+            let sec = score.time % 60
+            let min = score.time / 60
+            cell.lblTime.text = String(format: "%d:%02d",min,sec)
+            cell.lblDate.text = score.date
+        } else {
+            cell.lblTime.text = ""
+            cell.lblDate.text = ""
+        }
         cell.lblRank.text = String( indexPath.row + 1)
+        if indexPath.row % 2 == 0 {
+            cell.backgroundColor = .white
+        } else {
+            cell.backgroundColor = UIColor.yellow
+        }
         return cell
     }
     

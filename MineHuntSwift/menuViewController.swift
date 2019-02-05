@@ -8,12 +8,14 @@
 
 import UIKit
 import CoreGraphics
-
+import GoogleMobileAds
 
 class menuViewController: UIViewController,UIScrollViewDelegate {
 
     @IBOutlet weak var menuScroll: UIScrollView!
     @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var adBanner: GADBannerView!
+    
     var gameType :Int = 0
 
     required init?(coder aDecoder: NSCoder) {
@@ -22,11 +24,11 @@ class menuViewController: UIViewController,UIScrollViewDelegate {
 
     }
     
-    @IBAction func actPlay(sender: AnyObject) {
+    @IBAction func actPlay(_ sender: AnyObject) {
         var p: GameViewController
 
         let sb : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        p = sb.instantiateViewControllerWithIdentifier("gameViewController") as! GameViewController
+        p = sb.instantiateViewController(withIdentifier: "gameViewController") as! GameViewController
 
         p.gameType = self.gameType;
         self.navigationController?.pushViewController(p, animated: true)
@@ -35,31 +37,36 @@ class menuViewController: UIViewController,UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBarHidden = true;
         menuScroll.delegate = self
     }
-
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = true;
+    }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated);
-        
-        let bundle = NSBundle(forClass: menuScrollView.self)
+        adBanner.adUnitID = "ca-app-pub-9336538600879345/8704136517"
+        adBanner.rootViewController = self
+        let request: GADRequest = GADRequest()
+        request.testDevices = ["8a1df282f0b2b3dba789eb716c652302",kGADSimulatorID]
+        adBanner.load(request)
+        let bundle = Bundle(for: menuScrollView.self)
         for i in 0...2 {
-            var frame: CGRect = CGRectZero
+            var frame: CGRect = CGRect.zero
             frame.origin.x = menuScroll.frame.size.width * CGFloat(i)
             frame.origin.y = 0
             frame.size = menuScroll.frame.size
-            let subview = bundle.loadNibNamed("menuScrollView", owner: nil, options: nil)[0] as! menuScrollView
+            let subview = bundle.loadNibNamed("menuScrollView", owner: nil, options: nil)?[0] as! menuScrollView
             subview.gameType = i
             subview.setup()
             
             switch i{
             case 0:
-                subview.lblPage.text = "Easy: 8*8 10 Bombs"
+                subview.lblPage.text = "Easy"
             case 1:
-                subview.lblPage.text = "Medium: 10*10 12 Bombs"
+                subview.lblPage.text = "Medium"
             case 2:
-                subview.lblPage.text = "Hard: 16*16 20 Bombs"
+                subview.lblPage.text = "Hard"
             default:
                 subview.lblPage.text = "Oops"
 
@@ -69,13 +76,13 @@ class menuViewController: UIViewController,UIScrollViewDelegate {
             subview.layoutIfNeeded()
             menuScroll.addSubview(subview)
         }
-        menuScroll.contentSize = CGSizeMake(menuScroll.frame.size.width * 3, menuScroll.frame.size.height);
+        menuScroll.contentSize = CGSize(width: menuScroll.frame.size.width * 3, height: menuScroll.frame.size.height);
         menuScroll.layoutIfNeeded()
-        menuScroll.pagingEnabled = true
-        menuScroll.userInteractionEnabled = true
+        menuScroll.isPagingEnabled = true
+        menuScroll.isUserInteractionEnabled = true
         menuScroll.decelerationRate = UIScrollViewDecelerationRateNormal
-        menuScroll.scrollEnabled = true
-        menuScroll.bounces = true        
+        menuScroll.isScrollEnabled = true
+        menuScroll.bounces = false
     }
     
     override func didReceiveMemoryWarning() {
@@ -84,14 +91,14 @@ class menuViewController: UIViewController,UIScrollViewDelegate {
     }
     
     // no vertical scrolling please
-    func scrollViewDidScroll(scrollView: UIScrollView)
+    func scrollViewDidScroll(_ scrollView: UIScrollView)
     {
 //        scrollView.setContentOffset(CGPointMake(scrollView.contentOffset.x,0), animated: false)
     }
     
     //get the game number of the page
-    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
-        let frame: CGRect  = UIScreen.mainScreen().bounds
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let frame: CGRect  = UIScreen.main.bounds
         let roundedValue : CGFloat = round(scrollView.contentOffset.x / frame.size.width);
         self.gameType = Int(roundedValue)
     }

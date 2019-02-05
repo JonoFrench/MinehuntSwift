@@ -11,33 +11,32 @@ import SpriteKit
 
 class gameButton :SKSpriteNode  {
     
-    var actionTouchUpInside : Selector? = ""
-    var actionTouchDown : Selector? = ""
-    var actionTouchUp : Selector? = ""
-   
-    var targetTouchUpInside : AnyObject? = ""
-    var targetTouchDown : AnyObject? = ""
-    var targetTouchUp : AnyObject? = ""
+    var actionTouchUpInside : Selector? = #selector(self)
+    var actionTouchDown : Selector? = #selector(self)
+    var actionTouchUp : Selector? = #selector(self)
     
-    var isEnabled : Bool  = false
+    var targetTouchUpInside : AnyObject? = "" as AnyObject?
+    var targetTouchDown : AnyObject? = "" as AnyObject?
+    var targetTouchUp : AnyObject? = "" as AnyObject?
+    
+    var isEnabled : Bool  = true
     var isSelected : Bool = false
     
-//    var title : SKLabelNode = SKLabelNode()
-//    var normalTexture : SKTexture
     var selectedTexture : SKTexture?
-//    var disabledTexture : SKTexture
     
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
-        //var col = UIColor.redColor()
-        //var s:CGSize = CGSize(width: 46,height: 46)
         super.init(texture: texture, color: color, size: size)
+        isEnabled = true
+        isSelected = false
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
         self.init()
+        isEnabled = true
+        isSelected = false
     }
     
-    func initWithTextureNormal (normal :SKTexture, selected : SKTexture)->AnyObject{
+    func initWithTextureNormal (_ normal :SKTexture, selected : SKTexture)->AnyObject{
         
         normalTexture = normal
         selectedTexture = selected
@@ -45,79 +44,70 @@ class gameButton :SKSpriteNode  {
         isSelected = false
         
         let title : SKLabelNode = SKLabelNode(fontNamed: "Arial")
-        title.verticalAlignmentMode = SKLabelVerticalAlignmentMode.Center
-        title.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Center
+        title.verticalAlignmentMode = SKLabelVerticalAlignmentMode.center
+        title.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
         self.addChild(title)
-            self.userInteractionEnabled = true
+        self.isUserInteractionEnabled = true
         return self
     }
-
-    func initWithTextureNormal (normal :SKTexture, selected : SKTexture, disabled : SKTexture)->AnyObject{
+    
+    func initWithTextureNormal (_ normal :SKTexture, selected : SKTexture, disabled : SKTexture)->AnyObject{
         return self
         
     }
-
-    func setTouchUpInsideTarget(target : AnyObject, action: Selector){
+    
+    func setTouchUpInsideTarget(_ target : AnyObject, action: Selector){
         targetTouchUpInside = target
         actionTouchUpInside = action
     }
-
-    func setTouchDownTarget(target : AnyObject, action: Selector){
+    
+    func setTouchDownTarget(_ target : AnyObject, action: Selector){
         targetTouchDown = target
         actionTouchDown = action
     }
     
-    func setTouchUpTarget(target : AnyObject, action: Selector){
+    func setTouchUpTarget(_ target : AnyObject, action: Selector){
         targetTouchUp = target
         actionTouchUp = action
     }
     
-    func setEnabled(enabled : Bool){
+    func setEnabled(_ enabled : Bool){
         isEnabled = enabled
-        
-        
     }
     
     //called when the user taps the button
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         print("touches began")
-        if isEnabled{
-            if (actionTouchDown != nil){
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    NSThread.detachNewThreadSelector(self.actionTouchDown!, toTarget: self.parent!, withObject: self.targetTouchDown)
-                })
-            }
+        guard isEnabled else {
+            return
         }
+        DispatchQueue.main.async(execute: { () -> Void in
+            Thread.detachNewThreadSelector(self.actionTouchDown!, toTarget: self.parent!, with: self.targetTouchDown)})
         
     }
     
-    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
     }
     
-    //called when the user finishes touching the button
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-//        println("touches ended")
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard isEnabled else {
+            return
+        }
         for touch : AnyObject in touches {
-            let touchPoint : CGPoint = touch.locationInNode(self.parent!)
+            let touchPoint : CGPoint = touch.location(in: self.parent!)
             
-        
-        
-        if isEnabled && CGRectContainsPoint(self.frame,touchPoint){
-            if (actionTouchUpInside != nil) {
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    NSThread.detachNewThreadSelector(self.actionTouchUpInside!, toTarget: self.parent!, withObject: self.targetTouchUpInside)
+            
+            
+            if self.frame.contains(touchPoint){
+                DispatchQueue.main.async(execute: { () -> Void in
+                    Thread.detachNewThreadSelector(self.actionTouchUpInside!, toTarget: self.parent!, with: self.targetTouchUpInside)
                 })
-                
             }
-        }
-        isSelected = false
-        if (actionTouchUp != nil) {
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                NSThread.detachNewThreadSelector(self.actionTouchUp!, toTarget: self.parent!, withObject: self.targetTouchUp)
-            })
-        }
-            
+            isSelected = false
+//            DispatchQueue.main.async(execute: { () -> Void in
+//                Thread.detachNewThreadSelector(self.actionTouchUp!, toTarget: self.parent!, with: self.targetTouchUp)
+//            })
         }
     }
     

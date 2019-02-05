@@ -51,7 +51,7 @@ class gameTile: SKSpriteNode {
         tileTap=0;
         state = TileState.kTileStateUnTouched
         tileSize = CGRect(x: 0, y: 0, width: 46, height: 46)
-        let col = UIColor.redColor()
+        let col = UIColor.red
         let s:CGSize = CGSize(width: 46,height: 46)
         super.init(texture: texture, color: col, size: s)
     }
@@ -60,7 +60,7 @@ class gameTile: SKSpriteNode {
         self.init()
     }
     
-    func initWithPositionX(x :Int, y :Int, row :Int, col :Int, tilesize :Int)//->gameTile
+    func initWithPositionX(_ x :Int, y :Int, row :Int, col :Int, tilesize :Int)//->gameTile
     {
  //       let ts : CGSize = CGSize(width: tilesize, height: tilesize)
         tileSize = CGRect(x: 0, y: 0, width: tilesize, height: tilesize)
@@ -76,8 +76,8 @@ class gameTile: SKSpriteNode {
         self.size = s
         self.xScale = 1;
         self.yScale = 1;
-        self.position = CGPointMake(CGFloat(x), CGFloat(y))
-        self.userInteractionEnabled = true;
+        self.position = CGPoint(x: CGFloat(x), y: CGFloat(y))
+        self.isUserInteractionEnabled = true;
         //self.color = UIColor.redColor()
         self.texture = tex
        // return self;
@@ -87,20 +87,20 @@ class gameTile: SKSpriteNode {
         return numHints!
     }
     
-    func setHint(hint :Int){
+    func setHint(_ hint :Int){
         numHints = hint
         hasFlag = false
         hasMine = false
     }
     
-    func setMine(mine : Bool){
+    func setMine(_ mine : Bool){
         hasMine = mine
         hasFlag = false
         hasHint = false
         numHints = 0
     }
     
-    func setFlag(flag : Bool){
+    func setFlag(_ flag : Bool){
         hasFlag = flag
     }
     
@@ -117,7 +117,7 @@ class gameTile: SKSpriteNode {
             tex = SKTexture.init(image: MineHuntImages.imageOfEmpty(frame: tileSize!))
             // we don't really want to display a 0
             // but we do need to check our surroundings for other space!
-            NSNotificationCenter.defaultCenter().postNotificationName("emptyTile", object: self)
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "emptyTile"), object: self)
         }
         else{
             tex = SKTexture.init(image: MineHuntImages.imageOfBombCount(frame: tileSize!, numBombs: String( numHints!)))
@@ -126,7 +126,7 @@ class gameTile: SKSpriteNode {
         
     }
     
-    func showLetter(letter : String)
+    func showLetter(_ letter : String)
     {
         tex = SKTexture.init(image: MineHuntImages.imageOfBombCount(frame: tileSize!, numBombs: letter))
         self.texture = tex
@@ -145,7 +145,7 @@ class gameTile: SKSpriteNode {
         self.texture = tex
         hasQuestion = true
         hasFlag = false
-        NSNotificationCenter.defaultCenter().postNotificationName("questButton", object: self)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "questButton"), object: self)
     }
     
     func showFlag(){
@@ -159,61 +159,80 @@ class gameTile: SKSpriteNode {
             self.texture = tex
             hasFlag = true
             hasQuestion = false
-            NSNotificationCenter.defaultCenter().postNotificationName("checkFlags", object: self)
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "checkFlags"), object: self)
         }
     }
     
-    func showBomb(expcount :Float){
+    func showBomb(_ expcount :Float){
         tex = SKTexture.init(image: MineHuntImages.imageOfMine(frame: tileSize!))
         self.texture = tex
 
-        NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(expcount), target: self, selector: Selector("explosion"), userInfo: nil, repeats: false)
+        Timer.scheduledTimer(timeInterval: TimeInterval(expcount), target: self, selector: #selector(gameTile.explosion), userInfo: nil, repeats: false)
     }
     
     func explosion(){
         
         soundAction = SKAction.playSoundFileNamed("explosion.caf", waitForCompletion: false)
-        runAction(soundAction!)
+        run(soundAction!)
         tex = SKTexture.init(image: MineHuntImages.imageOfExplosion(frame: tileSize!))
         self.texture = tex
-        let smokepath = NSBundle.mainBundle().pathForResource("spark", ofType: "sks")
-        smokeTrail = NSKeyedUnarchiver.unarchiveObjectWithFile(smokepath!) as? SKEmitterNode
+        let smokepath = Bundle.main.path(forResource: "spark", ofType: "sks")
+        smokeTrail = NSKeyedUnarchiver.unarchiveObject(withFile: smokepath!) as? SKEmitterNode
         smokeTrail!.position = self.position
         self.parent!.addChild(smokeTrail!)
+        let waitAction = SKAction.wait(forDuration: TimeInterval(smokeTrail!.particleLifetime))
+        smokeTrail!.run(waitAction, completion: {
+            self.smokeTrail!.removeFromParent()
+        })
+        if #available(iOS 10.0, *) {
+            let generator = UIImpactFeedbackGenerator(style:.heavy)
+            generator.impactOccurred()
+            
+        }
     }
     
     func showExplosion(){
         self.explosion()
-        NSNotificationCenter.defaultCenter().postNotificationName("gameOver", object: self)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "gameOver"), object: self)
     }
     
     // #pragma mark touch
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        if (gameOver){
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard !gameOver || state != TileState.kTileStateUnTouched else {
             return
         }
+//        if (gameOver){
+//            return
+//        }
         
-        if (state != TileState.kTileStateUnTouched){
-            return
-        }
-        ++tileTap
+//        if (state != TileState.kTileStateUnTouched){
+//            return
+//        }
+        tileTap += 1
         state = TileState.kTileStateTouched
     }
     
     
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        if (gameOver){
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard !gameOver else {
             return
         }
+//        if (gameOver){
+//            return
+//        }
         state = TileState.kTileStateUnTouched
-        NSTimer.scheduledTimerWithTimeInterval(0.25, target: self, selector: Selector("taphandler"), userInfo: nil, repeats: false)
+        Timer.scheduledTimer(timeInterval: 0.25, target: self, selector: #selector(gameTile.taphandler), userInfo: nil, repeats: false)
     }
     
     
     func taphandler(){
-        if(tileTap==0){ return
+        
+        guard tileTap > 0 else {
+            return
         }
+//        if(tileTap==0){ return
+//        }
         switch (tileTap) {
         case 1:
             // Single tap

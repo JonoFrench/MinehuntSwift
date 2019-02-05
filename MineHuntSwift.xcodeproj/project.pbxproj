@@ -18,6 +18,11 @@
 		346BE2A41B14DD200022039C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 346BE2A21B14DD200022039C /* Main.storyboard */; };
 		346BE2A61B14DD650022039C /* menuScrollView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 346BE2A51B14DD650022039C /* menuScrollView.xib */; };
 		346BE2A81B14DDA00022039C /* menuScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346BE2A71B14DDA00022039C /* menuScrollView.swift */; };
+		347898121C0E18030059D6C8 /* Numerals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347898111C0E18030059D6C8 /* Numerals.swift */; };
+		347898141C0E192E0059D6C8 /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347898131C0E192E0059D6C8 /* Clock.swift */; };
+		348405371E8408440018C466 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348405361E8408440018C466 /* AboutViewController.swift */; };
+		348AA6AD1E82D47900E045D9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 348AA6AC1E82D47900E045D9 /* GoogleService-Info.plist */; };
+		348AA6AE1E82D47900E045D9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 348AA6AC1E82D47900E045D9 /* GoogleService-Info.plist */; };
 		34C9B6531B17615A002086B3 /* MineHuntImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C9B6521B17615A002086B3 /* MineHuntImages.swift */; };
 		34C9B6551B17622C002086B3 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C9B6541B17622C002086B3 /* GameScene.swift */; };
 		34C9B6571B176286002086B3 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C9B6561B176285002086B3 /* GameViewController.swift */; };
@@ -28,6 +33,7 @@
 		34C9B6611B19FA1E002086B3 /* extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C9B6601B19FA1E002086B3 /* extentions.swift */; };
 		34C9B6621B1F314A002086B3 /* explosion.caf in Resources */ = {isa = PBXBuildFile; fileRef = 346BE29D1B14DB660022039C /* explosion.caf */; };
 		34C9B6641B1F53B4002086B3 /* gameButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C9B6631B1F53B4002086B3 /* gameButton.swift */; };
+		8A02599D6D9DCF2799D42FE3 /* Pods_MineHuntSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDF20891BEE56CAE851074B7 /* Pods_MineHuntSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		10523EBBAB401B1EFA1D1F56 /* Pods-MineHuntSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MineHuntSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-MineHuntSwift/Pods-MineHuntSwift.release.xcconfig"; sourceTree = "<group>"; };
 		346BE2741B14DAB90022039C /* MineHuntSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MineHuntSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		346BE2781B14DAB90022039C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		346BE2791B14DAB90022039C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +64,10 @@
 		346BE2A31B14DD200022039C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		346BE2A51B14DD650022039C /* menuScrollView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = menuScrollView.xib; sourceTree = "<group>"; };
 		346BE2A71B14DDA00022039C /* menuScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = menuScrollView.swift; sourceTree = "<group>"; };
+		347898111C0E18030059D6C8 /* Numerals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Numerals.swift; sourceTree = "<group>"; };
+		347898131C0E192E0059D6C8 /* Clock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clock.swift; sourceTree = "<group>"; };
+		348405361E8408440018C466 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		348AA6AC1E82D47900E045D9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		34C9B6521B17615A002086B3 /* MineHuntImages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineHuntImages.swift; sourceTree = "<group>"; };
 		34C9B6541B17622C002086B3 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		34C9B6561B176285002086B3 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +77,8 @@
 		34C9B65E1B1863A1002086B3 /* scoreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = scoreTableViewCell.swift; sourceTree = "<group>"; };
 		34C9B6601B19FA1E002086B3 /* extentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extentions.swift; sourceTree = "<group>"; };
 		34C9B6631B1F53B4002086B3 /* gameButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gameButton.swift; sourceTree = "<group>"; };
+		A97FC0116F7007BE96F473B4 /* Pods-MineHuntSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MineHuntSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MineHuntSwift/Pods-MineHuntSwift.debug.xcconfig"; sourceTree = "<group>"; };
+		EDF20891BEE56CAE851074B7 /* Pods_MineHuntSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MineHuntSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A02599D6D9DCF2799D42FE3 /* Pods_MineHuntSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,12 +100,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		01F887F7B65EA175C61281E5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EDF20891BEE56CAE851074B7 /* Pods_MineHuntSwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		346BE26B1B14DAB90022039C = {
 			isa = PBXGroup;
 			children = (
 				346BE2761B14DAB90022039C /* MineHuntSwift */,
 				346BE28C1B14DAB90022039C /* MineHuntSwiftTests */,
 				346BE2751B14DAB90022039C /* Products */,
+				F438C8F81A63D105B86975DA /* Pods */,
+				01F887F7B65EA175C61281E5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,6 +131,8 @@
 		346BE2761B14DAB90022039C /* MineHuntSwift */ = {
 			isa = PBXGroup;
 			children = (
+				348AA6AC1E82D47900E045D9 /* GoogleService-Info.plist */,
+				347898111C0E18030059D6C8 /* Numerals.swift */,
 				34C9B6521B17615A002086B3 /* MineHuntImages.swift */,
 				346BE2791B14DAB90022039C /* AppDelegate.swift */,
 				346BE27B1B14DAB90022039C /* ViewController.swift */,
@@ -128,6 +154,8 @@
 				34C9B65C1B18636A002086B3 /* scoreTableViewCell.xib */,
 				34C9B6601B19FA1E002086B3 /* extentions.swift */,
 				34C9B6631B1F53B4002086B3 /* gameButton.swift */,
+				347898131C0E192E0059D6C8 /* Clock.swift */,
+				348405361E8408440018C466 /* AboutViewController.swift */,
 			);
 			path = MineHuntSwift;
 			sourceTree = "<group>";
@@ -157,6 +185,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		F438C8F81A63D105B86975DA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A97FC0116F7007BE96F473B4 /* Pods-MineHuntSwift.debug.xcconfig */,
+				10523EBBAB401B1EFA1D1F56 /* Pods-MineHuntSwift.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -164,9 +201,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 346BE2931B14DAB90022039C /* Build configuration list for PBXNativeTarget "MineHuntSwift" */;
 			buildPhases = (
+				CF446531491B206AF1D62179 /* [CP] Check Pods Manifest.lock */,
 				346BE2701B14DAB90022039C /* Sources */,
 				346BE2711B14DAB90022039C /* Frameworks */,
 				346BE2721B14DAB90022039C /* Resources */,
+				07F1FBD5A2832A1208171CF8 /* [CP] Embed Pods Frameworks */,
+				ABFE0CBBFDACBF12D03E6F7B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -203,14 +243,19 @@
 			attributes = {
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Jonathan French";
 				TargetAttributes = {
 					346BE2731B14DAB90022039C = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 9GZ8FVR7LN;
+						LastSwiftMigration = 0820;
+						ProvisioningStyle = Automatic;
 					};
 					346BE2881B14DAB90022039C = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 9GZ8FVR7LN;
+						LastSwiftMigration = 0820;
 						TestTargetID = 346BE2731B14DAB90022039C;
 					};
 				};
@@ -241,6 +286,7 @@
 			files = (
 				346BE2841B14DAB90022039C /* LaunchScreen.xib in Resources */,
 				346BE2A41B14DD200022039C /* Main.storyboard in Resources */,
+				348AA6AD1E82D47900E045D9 /* GoogleService-Info.plist in Resources */,
 				346BE29C1B14DB500022039C /* spark.sks in Resources */,
 				346BE29B1B14DB500022039C /* spark.png in Resources */,
 				346BE2A61B14DD650022039C /* menuScrollView.xib in Resources */,
@@ -254,10 +300,59 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				348AA6AE1E82D47900E045D9 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		07F1FBD5A2832A1208171CF8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MineHuntSwift/Pods-MineHuntSwift-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ABFE0CBBFDACBF12D03E6F7B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MineHuntSwift/Pods-MineHuntSwift-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CF446531491B206AF1D62179 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		346BE2701B14DAB90022039C /* Sources */ = {
@@ -267,12 +362,15 @@
 				34C9B6571B176286002086B3 /* GameViewController.swift in Sources */,
 				34C9B6591B1762AF002086B3 /* gameTile.swift in Sources */,
 				34C9B6551B17622C002086B3 /* GameScene.swift in Sources */,
+				348405371E8408440018C466 /* AboutViewController.swift in Sources */,
 				346BE2A11B14DC560022039C /* menuViewController.swift in Sources */,
 				34C9B6531B17615A002086B3 /* MineHuntImages.swift in Sources */,
 				34C9B6641B1F53B4002086B3 /* gameButton.swift in Sources */,
 				34C9B65B1B1861A2002086B3 /* highScores.swift in Sources */,
+				347898121C0E18030059D6C8 /* Numerals.swift in Sources */,
 				346BE27C1B14DAB90022039C /* ViewController.swift in Sources */,
 				346BE2A81B14DDA00022039C /* menuScrollView.swift in Sources */,
+				347898141C0E192E0059D6C8 /* Clock.swift in Sources */,
 				34C9B6611B19FA1E002086B3 /* extentions.swift in Sources */,
 				34C9B65F1B1863A1002086B3 /* scoreTableViewCell.swift in Sources */,
 				346BE27A1B14DAB90022039C /* AppDelegate.swift in Sources */,
@@ -330,14 +428,17 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -374,8 +475,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -394,28 +497,43 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		346BE2941B14DAB90022039C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A97FC0116F7007BE96F473B4 /* Pods-MineHuntSwift.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 9GZ8FVR7LN;
 				INFOPLIST_FILE = MineHuntSwift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.appdigital.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		346BE2951B14DAB90022039C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 10523EBBAB401B1EFA1D1F56 /* Pods-MineHuntSwift.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 9GZ8FVR7LN;
 				INFOPLIST_FILE = MineHuntSwift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.appdigital.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -424,6 +542,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 9GZ8FVR7LN;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -434,7 +554,9 @@
 				);
 				INFOPLIST_FILE = MineHuntSwiftTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.appdigital.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MineHuntSwift.app/MineHuntSwift";
 			};
 			name = Debug;
@@ -443,13 +565,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = 9GZ8FVR7LN;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = MineHuntSwiftTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.appdigital.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MineHuntSwift.app/MineHuntSwift";
 			};
 			name = Release;

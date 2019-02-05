@@ -16,14 +16,14 @@ class GameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "homeButtonNotification", name: "menuReturn", object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(GameViewController.homeButtonNotification), name: NSNotification.Name(rawValue: "menuReturn"), object: nil)
         let scene : GameScene = GameScene(size: skView.bounds.size)
         scene.gameType = self.gameType!
         skView.showsFPS = false
         skView.showsNodeCount = false
         skView.ignoresSiblingOrder = false
         scene.size = skView.bounds.size
-        scene.scaleMode = SKSceneScaleMode.AspectFill
+        scene.scaleMode = SKSceneScaleMode.aspectFill
         scene.gameType = gameType!
         skView.presentScene(scene)
     }
@@ -40,13 +40,13 @@ class GameViewController: UIViewController {
     }
 
     // Hide the status bar
-    override func prefersStatusBarHidden() -> Bool {
+    override var prefersStatusBarHidden : Bool {
         return true
     }
     
     func homeButtonNotification(){
-        dispatch_async(dispatch_get_main_queue(), {
-            self.navigationController?.popViewControllerAnimated(true)
+        DispatchQueue.main.async(execute: {
+            self.navigationController?.popViewController(animated: true)
         })
         
     }
